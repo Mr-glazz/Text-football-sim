@@ -1,54 +1,54 @@
-DOCTYPE html]
-[html lang="en"]
-[head]
-[meta charset="UTF-8"]
-[meta name="viewport" content="width=device-width, initial-scale=1.0"]
-[title]Retro Football Sim[/title]
-[link rel="stylesheet" href="style.css"]
-[/head]
-[body]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Football Sim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-[div class="game-container"]
-[!-- SCOREBOARD (Joe Montana Vibe) --]
-[header class="scoreboard"]
-[div class="team home"]
-[h2]HOME[/h2]
-[div id="home-score" class="score-display"]00[/div]
-[/div]
-[div class="game-info"]
-[div id="quarter"]Q1[/div]
-[div id="down-distance"]1st & 10[/div]
-[div id="ball-on"]Own 20[/div]
-[/div]
-[div class="team away"]
-[h2]AWAY[/h2]
-[div id="away-score" class="score-display"]00[/div]
-[/div]
-[/header]
+    <div class="game-container">
+        <!-- SCOREBOARD (Joe Montana Vibe) -->
+        <header class="scoreboard">
+            <div class="team home">
+                <h2>HOME</h2>
+                <div id="home-score" class="score-display">00</div>
+            </div>
+            <div class="game-info">
+                <div id="quarter">Q1</div>
+                <div id="down-distance">1st & 10</div>
+                <div id="ball-on">Own 20</div>
+            </div>
+            <div class="team away">
+                <h2>AWAY</h2>
+                <div id="away-score" class="score-display">00</div>
+            </div>
+        </header>
 
-[!-- STRATEGY PANEL (Troy Aikman Logic toggles) --]
-[section class="strategy-panel"]
-[h3]Playbook Strategy[/h3]
-[div class="toggle-group"]
-[label for="play-call"]Next Offensive Scheme:[/label]
-[select id="play-call"]
-[option value="triple-option"]Bill Walsh Triple Option (Heavy Run)[/option]
-[option value="west-coast"]West Coast Short Pass (Balanced)[/option]
-[option value="run-and-shoot"]Run & Shoot Deep Pass (Aggressive)[/option]
-[/select]
-[/div]
-[button id="sim-button"]Snap the Ball[/button]
-[/section]
+        <!-- STRATEGY PANEL (Troy Aikman Logic toggles) -->
+        <section class="strategy-panel">
+            <h3>Playbook Strategy</h3>
+            <div class="toggle-group">
+                <label for="play-call">Next Offensive Scheme:</label>
+                <select id="play-call">
+                    <option value="triple-option">Bill Walsh Triple Option (Heavy Run)</option>
+                    <option value="west-coast">West Coast Short Pass (Balanced)</option>
+                    <option value="run-and-shoot">Run & Shoot Deep Pass (Aggressive)</option>
+                </select>
+            </div>
+            <button id="sim-button">Snap the Ball</button>
+        </section>
 
-[!-- LIVE TICKER BROADCAST (Joe Montana Announcer) --]
-[main class="broadcast-window"]
-[h3]Live Radio Broadcast[/h3]
-[div id="ticker-box" class="ticker-box"]
-[p class="announcer-text"]Welcome to the stadium! Set your playbook strategy above and snap the ball to kick off.[/p]
-[/div]
-[/main]
-[/div]
+        <!-- LIVE TICKER BROADCAST (Joe Montana Announcer) -->
+        <main class="broadcast-window">
+            <h3>Live Radio Broadcast</h3>
+            <div id="ticker-box" class="ticker-box">
+                <p class="announcer-text">Welcome to the stadium! Set your playbook strategy above and snap the ball to kick off.</p>
+            </div>
+        </main>
+    </div>
 
-[script src="game.js"][/script]
-[/body]
-[/html]
+    <script src="game.js"></script>
+</body>
+</html>
