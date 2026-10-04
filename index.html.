@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Football Sim</title>
+    <title>Retro Football Sim: 91 Edition</title>
     <style>
-        /* Reset and Retro Game Theme */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,7 +13,7 @@
         }
 
         body {
-            background-color: #121212;
+            background-color: #0d1117;
             color: #e0e0e0;
             display: flex;
             justify-content: center;
@@ -24,11 +23,11 @@
 
         .game-container {
             width: 100%;
-            max-width: 600px;
-            background-color: #1e1e1e;
-            border: 4px solid #333;
+            max-width: 650px;
+            background-color: #161b22;
+            border: 4px solid #30363d;
             border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
             padding: 20px;
         }
 
@@ -38,7 +37,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: #0b2d19;
-            border: 2px solid #2e7d32;
+            border: 2px solid #2ea043;
             padding: 15px;
             border-radius: 6px;
             margin-bottom: 20px;
@@ -46,28 +45,34 @@
 
         .team {
             text-align: center;
+            flex: 1;
         }
 
         .team h2 {
-            font-size: 1rem;
-            color: #a5d6a7;
+            font-size: 0.9rem;
+            color: #7ee787;
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .score-display {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: bold;
-            color: #fff;
+            color: #ffffff;
             background: #000;
-            padding: 5px 15px;
+            padding: 5px 10px;
             border-radius: 4px;
-            border: 1px solid #444;
+            border: 1px solid #333;
+            display: inline-block;
+            min-width: 70px;
         }
 
         .game-info {
             text-align: center;
-            font-size: 0.9rem;
-            color: #c8e6c9;
+            flex: 1.2;
+            font-size: 0.85rem;
+            color: #ffa657;
+            line-height: 1.4;
         }
 
         .game-info div {
@@ -76,43 +81,46 @@
 
         /* Strategy Panel */
         .strategy-panel {
-            background-color: #262626;
+            background-color: #21262d;
             padding: 15px;
             border-radius: 6px;
             margin-bottom: 20px;
-            border: 1px solid #444;
+            border: 1px solid #30363d;
         }
 
         .strategy-panel h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 10px;
-            color: #ffb300;
+            color: #58a6ff;
+            text-transform: uppercase;
         }
 
         .toggle-group {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .toggle-group label {
             display: block;
             margin-bottom: 5px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            color: #8b949e;
         }
 
         select {
             width: 100%;
-            padding: 8px;
-            background-color: #333;
+            padding: 10px;
+            background-color: #0d1117;
             color: #fff;
-            border: 1px solid #555;
+            border: 1px solid #30363d;
             border-radius: 4px;
             font-size: 0.9rem;
+            outline: none;
         }
 
         button {
             width: 100%;
             padding: 12px;
-            background-color: #d32f2f;
+            background-color: #238636;
             color: white;
             border: none;
             border-radius: 4px;
@@ -120,54 +128,63 @@
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.2s;
         }
 
         button:hover {
-            background-color: #b71c1c;
+            background-color: #2ea043;
+        }
+
+        button:active {
+            background-color: #1f6feb;
         }
 
         /* Broadcast Window */
         .broadcast-window {
-            background-color: #181818;
+            background-color: #0d1117;
             padding: 15px;
             border-radius: 6px;
-            border: 1px solid #444;
+            border: 1px solid #30363d;
         }
 
         .broadcast-window h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #90caf9;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #8b949e;
+            text-transform: uppercase;
         }
 
         .ticker-box {
             background-color: #000;
-            border: 1px solid #333;
+            border: 1px solid #30363d;
             padding: 12px;
             border-radius: 4px;
-            min-height: 60px;
+            min-height: 80px;
+            max-height: 120px;
+            overflow-y: auto;
         }
 
         .announcer-text {
-            font-size: 0.95rem;
-            color: #81c784;
-            line-height: 1.4;
+            font-size: 0.9rem;
+            color: #3fb950;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
     <div class="game-container">
-        <!-- SCOREBOARD (Joe Montana Vibe) -->
+        <!-- SCOREBOARD -->
         <header class="scoreboard">
             <div class="team home">
                 <h2>HOME</h2>
                 <div id="home-score" class="score-display">00</div>
             </div>
             <div class="game-info">
-                <div id="quarter">Q1</div>
+                <div id="quarter">Q1 - 15:00</div>
                 <div id="down-distance">1st & 10</div>
-                <div id="ball-on">Own 20</div>
+                <div id="ball-on">Own 25</div>
             </div>
             <div class="team away">
                 <h2>AWAY</h2>
@@ -175,28 +192,194 @@
             </div>
         </header>
 
-        <!-- STRATEGY PANEL (Troy Aikman Logic toggles) -->
+        <!-- STRATEGY PANEL -->
         <section class="strategy-panel">
             <h3>Playbook Strategy</h3>
             <div class="toggle-group">
-                <label for="play-call">Next Offensive Scheme:</label>
+                <label for="play-call">Choose Offensive Scheme:</label>
                 <select id="play-call">
-                    <option value="triple-option">Bill Walsh Triple Option (Heavy Run)</option>
-                    <option value="west-coast">West Coast Short Pass (Balanced)</option>
-                    <option value="run-and-shoot">Run & Shoot Deep Pass (Aggressive)</option>
+                    <option value="west-coast">Bill Walsh West Coast (Short Passing & Control)</option>
+                    <option value="aikman-ground">Troy Aikman Power Run (Heavy Ground Game)</option>
+                    <option value="montana-bomb">Joe Montana Deep Strike (Aggressive Play-Action)</option>
                 </select>
             </div>
             <button id="sim-button">Snap the Ball</button>
         </section>
 
-        <!-- LIVE TICKER BROADCAST (Joe Montana Announcer) -->
+        <!-- LIVE TICKER BROADCAST -->
         <main class="broadcast-window">
-            <h3>Live Radio Broadcast</h3>
+            <h3>Play-by-Play Announcer</h3>
             <div id="ticker-box" class="ticker-box">
-                <p class="announcer-text">Welcome to the stadium! Set your playbook strategy above and snap the ball to kick off.</p>
+                <p id="announcer-text" class="announcer-text">Welcome to the gridiron! Choose your playbook strategy above and hit "Snap the Ball" to start the drive.</p>
             </div>
         </main>
     </div>
 
+    <script>
+        // Game State Variables
+        let homeScore = 0;
+        let awayScore = 0;
+        let quarter = 1;
+        let down = 1;
+        let distance = 10;
+        let yardLine = 25; // 0 to 100 (50 is midfield, 100 is opponent endzone)
+        let gameOver = false;
+
+        const simButton = document.getElementById('sim-button');
+        const homeScoreEl = document.getElementById('home-score');
+        const awayScoreEl = document.getElementById('away-score');
+        const quarterEl = document.getElementById('quarter');
+        const downDistanceEl = document.getElementById('down-distance');
+        const ballOnEl = document.getElementById('ball-on');
+        const announcerText = document.getElementById('announcer-text');
+
+        simButton.addEventListener('click', () => {
+            if (gameOver) {
+                resetGame();
+                return;
+            }
+
+            const scheme = document.getElementById('play-call').value;
+            runPlay(scheme);
+        });
+
+        function runPlay(scheme) {
+            let gain = 0;
+            let commentary = "";
+            let eventRoll = Math.random();
+
+            // Scheme Logic (Aikman run control, Walsh short precision, Montana deep bombs)
+            if (scheme === 'west-coast') {
+                if (eventRoll < 0.15) {
+                    gain = 0;
+                    commentary = "Quick slant dropped incomplete under tight coverage.";
+                } else if (eventRoll < 0.75) {
+                    gain = Math.floor(Math.random() * 7) + 4; // 4 to 10 yards
+                    commentary = `Classic West Coast timing route! Short pass completed for a gain of ${gain} yards.`;
+                } else {
+                    gain = Math.floor(Math.random() * 12) + 11; // 11 to 22 yards
+                    commentary = `Precision execution! Wide receiver finds the soft spot in the zone for ${gain} yards!`;
+                }
+            } else if (scheme === 'aikman-ground') {
+                if (eventRoll < 0.2) {
+                    gain = -2;
+                    commentary = "Stuffed at the line! The defensive front blows up the run for a loss of 2.";
+                } else if (eventRoll < 0.70) {
+                    gain = Math.floor(Math.random() * 5) + 2; // 2 to 6 yards
+                    commentary = `Power running game grinding it out behind the line. Gain of ${gain} yards.`;
+                } else {
+                    gain = Math.floor(Math.random() * 15) + 8; // 8 to 22 yards
+                    commentary = `Offensive line parts the red sea! Huge hole opened up for a gain of ${gain} yards!`;
+                }
+            } else if (scheme === 'montana-bomb') {
+                if (eventRoll < 0.45) {
+                    gain = 0;
+                    commentary = "SACKED! Blitz picked up the coverage, deep play blown up in the backfield.";
+                } else if (eventRoll < 0.75) {
+                    gain = Math.floor(Math.random() * 8) + 1; // 1 to 8 yards
+                    commentary = `Deep coverage holds up; quarterback scrambles out of the pocket for ${gain} yards.`;
+                } else {
+                    gain = Math.floor(Math.random() * 30) + 15; // 15 to 44 yards
+                    commentary = `TOUCHDOWN PASS! A brilliant deep ball launched downfield for a massive gain of ${gain} yards!`;
+                }
+            }
+
+            updateGameState(gain, commentary);
+        }
+
+        function updateGameState(gain, commentary) {
+            yardLine += gain;
+            distance -= gain;
+
+            // Check for Touchdown
+            if (yardLine >= 100) {
+                homeScore += 7;
+                announcerText.innerHTML = `${commentYards(commentary)} <br><strong>TOUCHDOWN HOME TEAM! (+7 points)</strong>`;
+                resetDrive("TOUCHDOWN! Kickoff coming up.");
+                checkGameOver();
+                updateDisplay();
+                return;
+            }
+
+            // Check for Safety or turnover on downs simulation
+            if (yardLine <= 0) {
+                yardLine = 15;
+                down = 1;
+                distance = 10;
+                announcerText.innerHTML = `${commentary} <br>Safety or deep turnover! Ball spotted at the 15-yard line.`;
+                updateDisplay();
+                return;
+            }
+
+            // Check for First Down
+            if (distance <= 0) {
+                down = 1;
+                distance = 10;
+                announcerText.innerHTML = `${commentary} <br><strong>FIRST DOWN!</strong>`;
+            } else {
+                down++;
+                if (down > 4) {
+                    // Turnover on downs
+                    announcerText.innerHTML = `${commentary} <br>Turnover on downs! Defense holds strong. Switching possession.`;
+                    yardLine = 100 - yardLine; // Flip field
+                    down = 1;
+                    distance = 10;
+                    updateDisplay();
+                    return;
+                } else {
+                    announcerText.innerHTML = commentary;
+                }
+            }
+
+            updateDisplay();
+        }
+
+        function commentYards(text) {
+            return text;
+        }
+
+        function resetDrive(msg) {
+            yardLine = 25;
+            down = 1;
+            distance = 10;
+            announcerText.innerHTML = msg;
+        }
+
+        function checkGameOver() {
+            if (homeScore >= 21 || awayScore >= 21) {
+                quarter++;
+                if (quarter > 4) {
+                    gameOver = true;
+                    simButton.innerText = "Play Again";
+                    announcerText.innerHTML += "<br><strong>GAME OVER! Final whistle blows. Click 'Play Again' to restart.</strong>";
+                }
+            }
+        }
+
+        function updateDisplay() {
+            homeScoreEl.innerText = String(homeScore).padStart(2, '0');
+            awayScoreEl.innerText = String(awayScore).padStart(2, '0');
+            
+            let fieldDescription = "";
+            if (yardLine < 50) {
+                fieldDescription = `Own ${yardLine}`;
+            } else if (yardLine === 50) {
+                fieldDescription = `50 Yard Line`;
+            } else {
+                fieldDescription = `Opp ${100 - yardLine}`;
+            }
+
+            quarterEl.innerText = `Q${quarter} - 2:00`;
+            downDistanceEl.innerText = `${getOrdinal(down)} & ${distance}`;
+            ballOnEl.innerText = fieldDescription;
+        }
+
+        function getOrdinal(n) {
+            if (n === 1) return "1st";
+            if (n === 2) return "2nd";
+            if (n === 3) return "3rd";
+            return "4th";
+        }
+    </script>
 </body>
 </html>
